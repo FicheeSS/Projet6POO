@@ -104,7 +104,7 @@ public class DemoController extends ShowHideDialog implements Initializable {
             e.printStackTrace();
         }
         imageViewPane.setPreserveRatio(true);
-        imageViewPane.setFitHeight(500);
+        imageViewPane.setFitHeight(imageViewPane.getFitHeight());
         Index = 0;
         imgDescArea.setText(textList[Index]);
         imageViewPane.setImage(imageGal.get(Index));

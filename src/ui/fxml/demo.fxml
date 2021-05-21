@@ -6,15 +6,15 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="747.0" prefWidth="764.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.controllers.DemoController">
+<AnchorPane prefHeight="633.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.controllers.DemoController">
     <children>
-        <AnchorPane fx:id="imagePane" layoutX="-11.0" layoutY="-9.0" prefHeight="878.0" prefWidth="1079.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <AnchorPane fx:id="imagePane" layoutX="-11.0" layoutY="-9.0" prefHeight="651.0" prefWidth="1070.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <opaqueInsets>
                 <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
             </opaqueInsets>
             <children>
-                <ImageView fx:id="imageViewPane" fitHeight="577.0" fitWidth="1060.0" layoutX="-6.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0" />
-              <TextArea fx:id="imgDescArea" editable="false" layoutX="203.0" layoutY="716.0" prefHeight="101.0" prefWidth="636.0" AnchorPane.bottomAnchor="38.0" AnchorPane.leftAnchor="203.0" AnchorPane.rightAnchor="215.0" />
+                <ImageView fx:id="imageViewPane" fitHeight="461.0" fitWidth="662.0" layoutX="216.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="216.0" AnchorPane.rightAnchor="202.0" AnchorPane.topAnchor="14.0" />
+              <TextArea fx:id="imgDescArea" editable="false" layoutX="199.0" layoutY="483.0" prefHeight="135.0" prefWidth="696.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="199.0" AnchorPane.rightAnchor="185.0" />
               <Button fx:id="next" layoutX="897.0" layoutY="809.0" mnemonicParsing="false" onAction="#onAdvance" prefHeight="28.0" prefWidth="165.0" text="Avancer" AnchorPane.bottomAnchor="129.0" AnchorPane.rightAnchor="6.0" />
               <Button fx:id="back" layoutX="18.0" layoutY="802.0" mnemonicParsing="false" onAction="#onBack" prefHeight="28.0" prefWidth="165.0" text="Reculer" AnchorPane.bottomAnchor="136.0" AnchorPane.leftAnchor="18.0" />
             </children>
