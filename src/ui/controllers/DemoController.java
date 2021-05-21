@@ -54,18 +54,19 @@ public class DemoController extends ShowHideDialog implements Initializable {
                         "ce dernier n'a pas été ajouté comme Fournisseur, l'ajout du produit sera impossible ",
                         "Sinon le produit s'ajoutera au stock avec sucées !",
 
-            " VI- Commande : Ici on peut rechercher toutes les commandes passées", " Le but est de verifier les informations" +
+            " I- Commande : Ici on peut rechercher toutes les commandes passées", " Le but est de verifier les informations" +
                         " d'une des commandes ou bien d'en annuler une.  ",
-            "VII- Employé : Là on peut aussi verifier la liste des employés afin de voir une des informations de " +
-                    "chaque employé et on peut en supprimer un si l'on souhaite !",
+            "II- Employé : Là on peut aussi verifier la liste des employés afin de voir une des informations de " +
+                    "chaque employé et on peut en supprimer un si l'on souhaite !", "ici la création d'un employé",
 
-            "VIII- Produit : Ici on peut également verifier un ou plusieurs produits parmi tout ceux qui ont été " +
-                            "ajouté au stock avec la possibilité d'en supprimer !  ",
+            "III- Produit : Ici on peut également verifier un ou plusieurs produits parmi tout ceux qui ont été " +
+                            "ajouté au stock avec la possibilité d'en supprimer !  ", " Ici la création d'un produit !",
 
 
 
-            "VV- Client : Enfin, ici on peut verifier toute la liste des clients, cette dernière sera très utile si\n " +
-                    "l'on souhaite mettre à jour une ou plusieurs informations de n'importe quel client !"
+            "IV- Client : Enfin, ici on peut verifier toute la liste des clients, cette dernière sera très utile si\n " +
+                    "l'on souhaite mettre à jour une ou plusieurs informations de n'importe quel client","Ici la création " +
+            "d'un client !"
 
 
 
@@ -97,8 +98,8 @@ public class DemoController extends ShowHideDialog implements Initializable {
             imageGal.add(new Image(Objects.requireNonNull(DemoController.class.getResourceAsStream("./img/RecherchetEmploye2.png"))));
             imageGal.add(new Image(Objects.requireNonNull(DemoController.class.getResourceAsStream("./img/RechercherProduit1.png"))));
             imageGal.add(new Image(Objects.requireNonNull(DemoController.class.getResourceAsStream("./img/RecherchetEmploye1.png"))));
-            imageGal.add(new Image(Objects.requireNonNull(DemoController.class.getResourceAsStream("./img/CreerClient1.png"))));
-            imageGal.add(new Image(Objects.requireNonNull(DemoController.class.getResourceAsStream("./img/CreerClient2.png"))));
+            imageGal.add(new Image(Objects.requireNonNull(DemoController.class.getResourceAsStream("./img/RechercherClient1.png"))));
+            imageGal.add(new Image(Objects.requireNonNull(DemoController.class.getResourceAsStream("./img/RechercherClient2.png"))));
         } catch (Exception e) {
             e.printStackTrace();
         }
