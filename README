@@ -1,0 +1,16 @@
+Ce programme nécessite Java 16 ou supérieure pour fonctionner.
+Il est basé sur JavaFX, les libraries et les binaries nécessaires sont incluses dans le dossier lib.
+Pour compiler et débugger le programme on peut utiliser Intellij Idea.
+Pour lancer le programme on pourra lancer le fichier correspondant a son OS dans le dossier Dist.
+MacOS n'est pas encore supporter mais on pourra forcer sont lancemement en modifiant le fichier config.ini.
+
+Toutes les illustrations sont Creative Commons BY-NC-SA
+Programme distribué sous licence GNU GPL.
+
+Librairies utilisées :
+MariaDB4j : https://github.com/vorburger/MariaDB4j
+OSHI : https://github.com/oshi/oshi
+Ini4j : http://ini4j.sourceforge.net/
+OpenJFX : https://openjfx.io/
+JUnit : https://junit.org/junit5/
+Ainsi que toutes les librairies additionels néssaire pour faire fonctionner les librairies.

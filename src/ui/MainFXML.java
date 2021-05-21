@@ -29,7 +29,7 @@ public class MainFXML extends Application {
         }
         primaryStage.setTitle("Project 6");
         Rectangle2D screenBounds = Screen.getPrimary().getBounds();
-        primaryScene = new Scene(root, (screenBounds.getWidth()>1284) ? 1284 :screenBounds.getWidth()  , (screenBounds.getHeight()>811) ? 811 :screenBounds.getHeight() -10 );
+        primaryScene = new Scene(root, (screenBounds.getWidth()>1284) ? 1284 :screenBounds.getWidth()  , (screenBounds.getHeight()>811) ? 811 :screenBounds.getHeight() -10);
         primaryStage.setScene(primaryScene);
         primaryStage.getIcons().add(APP_ICON);
         primaryStage.show();

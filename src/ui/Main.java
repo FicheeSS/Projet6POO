@@ -79,7 +79,14 @@ public class Main {
     public static void main(String[] args) {
         si = new SystemInfo();
         hal = si.getHardware();
-        if (si.getOperatingSystem().getFamily() == "MacOS") {
+        Ini ini = null;
+        try {
+            ini = new Ini(new File("config.ini"));
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.exit(1);
+        }
+        if (si.getOperatingSystem().getFamily() == "MacOS" && !Boolean.parseBoolean(ini.get("Application Config", "forceMacOS"))) {
             System.err.println("OS non supporté");
             System.exit(1);
         }
@@ -98,13 +105,7 @@ public class Main {
         }
         System.out.println("Launching DB may take some time ...");
         appM.initDB();
-        Ini ini = null;
-        try {
-            ini = new Ini(new File("config.ini"));
-        } catch (IOException e) {
-            e.printStackTrace();
-            System.exit(1);
-        }
+
         assert ini != null;
         MAJORVERSION = Integer.parseInt(ini.get("Application Properties", "MajorVersion"));
         VERSION = Integer.parseInt(ini.get("Application Properties", "Version"));
