@@ -2,13 +2,11 @@ package ui;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
-import javafx.stage.Modality;
-import javafx.stage.Stage;
-import javafx.stage.StageStyle;
-import javafx.stage.WindowEvent;
+import javafx.stage.*;
 import logic.ApplicationEvent;
 import ui.controllers.loadSample;
 
@@ -30,7 +28,8 @@ public class MainFXML extends Application {
             System.exit(1);
         }
         primaryStage.setTitle("Project 6");
-        primaryScene = new Scene(root, 1284, 811);
+        Rectangle2D screenBounds = Screen.getPrimary().getBounds();
+        primaryScene = new Scene(root, (screenBounds.getWidth()>1284) ? 1284 :screenBounds.getWidth() , (screenBounds.getHeight()>811) ? 811 :screenBounds.getHeight());
         primaryStage.setScene(primaryScene);
         primaryStage.getIcons().add(APP_ICON);
         primaryStage.show();
