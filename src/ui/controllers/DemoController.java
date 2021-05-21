@@ -121,10 +121,20 @@ public class DemoController extends ShowHideDialog implements Initializable {
             Index++;
             imgDescArea.setText(textList[Index]);
             imageViewPane.setImage(imageGal.get(Index));
-            next.setDisable((Index + 1 == imageGal.size()));
+            setExit(Index + 2 > imageGal.size());
         }
         if (Index > 0) {
             back.setDisable(false);
+        }
+
+    }
+    void setExit(boolean b){
+        if(b){
+            next.setText("Fermer");
+            next.setOnAction((ActionEvent) -> {hide();});
+        }else {
+            next.setText("Avancer");
+            next.setOnAction((ActionEvent)->{onAdvance(ActionEvent);});
         }
 
     }
@@ -134,7 +144,7 @@ public class DemoController extends ShowHideDialog implements Initializable {
             Index--;
             imgDescArea.setText(textList[Index]);
             imageViewPane.setImage(imageGal.get(Index));
-            back.setDisable((Index == 0));
+            setExit((Index == 0));
         }
         if (!(Index + 1 == imageGal.size())) {
             next.setDisable(false);

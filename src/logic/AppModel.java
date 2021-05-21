@@ -86,7 +86,7 @@ public class AppModel {
     public Transaction searchFournisseurNumber(float idFournisseur) {
         Transaction tx = new Transaction(dBi);
         DBObject dbo = new DBObject("Fournisseur");
-        dbo.query(tx, new QueryDB("", "", "", "nomFournisseur"));
+        dbo.query(tx, new QueryDB("id", idFournisseur, "", "nomFournisseur"));
         return tx;
     }
 

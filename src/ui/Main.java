@@ -111,7 +111,7 @@ public class Main {
         BUILDNUMBER = Integer.parseInt(ini.get("Application Properties", "BuildNumber"));
         ini.put("Application Properties", "BuildNumber", BUILDNUMBER++);
         isDemo = Boolean.parseBoolean(ini.get("Application Config", "runDemo"));
-//        ini.put("Application Config", "runDemo", "false");
+        ini.put("Application Config", "runDemo", "false");
         loadOnStartup = Boolean.parseBoolean( ini.get("Application Properties", "LoadOnStartup"));
         if(!loadOnStartup){checkDailyNotify();}
         System.out.println("Now Launching fxml ...");
