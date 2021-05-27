@@ -54,7 +54,14 @@ public class ClientChart implements Initializable {
                 case DELETED:
                     DBObject dbo = (DBObject) params[0];
                     if (dbo.getClass().getSimpleName().equals("Client")) {
-                        clientList.remove(dbo);
+                        Client cl = (Client) dbo;
+                        Client tbr = null;
+                        for(Client cs : clientList){
+                            if(cs.getID() == cl.getID()){
+                                tbr = cs;
+                            }
+                        }
+                        clientList.remove(tbr);
                         showLineClient();
                         break;
                     }

@@ -1,12 +1,19 @@
 package ui.controllers;
 
+import javafx.beans.Observable;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
 import logic.ApplicationEvent;
 import magasin.Client;
+import magasin.Commande;
 import magasin.DBObject;
+import magasin.Produit;
 import ui.Main;
 
 import java.net.URL;
@@ -39,6 +46,14 @@ public class ClientQueryController extends QueryBaseController {
         PClientController.setStandalone(false);
         Button actionButton = PClientController.getActionButton();
         actionButton.setOnAction((ActionEvent) -> {
+            Client c = (Client) currentSelectedObj;
+            ArrayList<Commande>  cmds = Main.getAppC().searchAllCommande();
+            for(Commande cmd : cmds){
+                if(cmd.getID_client() == c.getID()) {
+                    showError("Le client à des commandes");
+                    return;
+                }
+            }
             removeCurrentObj();
         });
         actionButton.setText("Supprimer");
@@ -103,4 +118,5 @@ public class ClientQueryController extends QueryBaseController {
             updButton.setDisable(!modifC.isSelected());
         }
     }
+
 }

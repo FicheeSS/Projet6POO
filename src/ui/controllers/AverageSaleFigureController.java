@@ -48,7 +48,14 @@ public class AverageSaleFigureController implements Initializable {
                 case DELETED:
                     DBObject dbo = (DBObject) params[0];
                     if (dbo.getClass().getSimpleName().equals("Commande")) {
-                        CommandeList.add((Commande) dbo);
+                        Commande cmd = (Commande) dbo;
+                        Commande tbr = null;
+                        for (Commande cmds : CommandeList ){
+                            if (cmds.getID() == cmd.getID()){
+                                tbr = cmds;
+                            }
+                        }
+                        CommandeList.remove(tbr);
                         updateMoyenne();
                     }
                     break;
