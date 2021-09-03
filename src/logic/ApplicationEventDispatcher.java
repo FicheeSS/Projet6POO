@@ -25,7 +25,7 @@ public class ApplicationEventDispatcher {
         listeners.forEach((l) -> {
             l.dispatchEvent(ApplicationEvent.events.DELETED, o);
         });
-        notifySucces("Suppresion effectué avec succes");
+        notifySucces("Suppresion effectué de avec succes");
     }
 
     public void showWindow(ApplicationEvent.appWindows window, boolean bShow) {

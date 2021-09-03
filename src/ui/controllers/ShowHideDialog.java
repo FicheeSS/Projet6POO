@@ -42,20 +42,18 @@ public abstract class ShowHideDialog implements Initializable {
     protected void initAppDispatch(ApplicationEvent.appWindows appWindow) {
         this.appWindow = appWindow;
         Main.getAppEventDisp().addListener((ApplicationEvent.events event, Object... params) -> {
-            switch (event) {
-                case SHOW_WINDOW:
-                    if (isStandalone) {
-                        ApplicationEvent.appWindows window = (ApplicationEvent.appWindows) params[0];
-                        Boolean bShow = (Boolean) params[1];
-                        if (window == ShowHideDialog.this.appWindow) {
-                            if (bShow) {
-                                show();
-                            } else {
-                                hide();
-                            }
+            if (event == ApplicationEvent.events.SHOW_WINDOW) {
+                if (isStandalone) {
+                    ApplicationEvent.appWindows window = (ApplicationEvent.appWindows) params[0];
+                    Boolean bShow = (Boolean) params[1];
+                    if (window == ShowHideDialog.this.appWindow) {
+                        if (bShow) {
+                            show();
+                        } else {
+                            hide();
                         }
                     }
-                    break;
+                }
             }
         });
 

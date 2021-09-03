@@ -55,6 +55,7 @@ public class CommandQueryController extends QueryBaseController implements Initi
                     Commande c = (Commande) params[0];
                     dbObjects.add(c);
                     doList.add(c.getDesc());
+                    break;
                 case DELETED:
                     DBObject dbo = (DBObject) params[0];
                     if (dbo.getClass().getSimpleName().equals("Commande")) {

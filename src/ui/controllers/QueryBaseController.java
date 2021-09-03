@@ -22,9 +22,6 @@ public abstract class QueryBaseController extends ShowHideDialog {
     @FXML
     protected ListView<String> LElement;
 
-//    @FXML
-//    protected Text Tname;
-
     @FXML
     protected AnchorPane ASelectionData;
     protected ArrayList<DBObject> dbObjects = new ArrayList<DBObject>();

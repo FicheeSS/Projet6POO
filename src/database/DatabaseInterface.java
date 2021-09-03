@@ -19,7 +19,7 @@ public class DatabaseInterface {
 
     public void lauchDatabase() {
         DBConfigurationBuilder configBuilder = DBConfigurationBuilder.newBuilder();
-        configBuilder.setPort(0); // OR, default: setPort(0); => autom. detect free port
+        configBuilder.setPort(3306); // OR, default: setPort(0); => autom. detect free port
         File tmp = Main.tempDirWithPrefix.toFile();
         tmp.deleteOnExit();
         configBuilder.setDataDir(tmp.getAbsolutePath()); // just an example

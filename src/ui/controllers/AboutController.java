@@ -12,7 +12,9 @@ import ui.Main;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.InetAddress;
 import java.net.URL;
+import java.net.UnknownHostException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
@@ -41,6 +43,23 @@ public class AboutController extends ShowHideDialog implements Initializable {
     }
 
     public void checkUpdate(){
+        boolean error = false;
+        try {
+            InetAddress ip =InetAddress.getByName("www.github.com");
+            if(ip.isReachable(160)){
+                error = true;
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+            error = true;
+        }
+        if(error){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Mise a jour");
+            alert.setContentText("Connexion indisponible");
+            alert.showAndWait();
+            return ;
+        }
         Path tmpFile ;
         try {
             tmpFile = Files.createTempFile("temp",".ini");
@@ -50,6 +69,7 @@ public class AboutController extends ShowHideDialog implements Initializable {
         }
         try {
             Files.copy(
+                    //Some hardcoding never hurted anyone ...
                     new URL("https://raw.githubusercontent.com/FicheeSS/Projet6POO/c51af1d23221e97c8361219ae3dfe2cbc208daaf/config.ini").openStream(),
                     tmpFile,
                     StandardCopyOption.REPLACE_EXISTING);
@@ -57,7 +77,7 @@ public class AboutController extends ShowHideDialog implements Initializable {
             e.printStackTrace();
             return;
         }
-        Ini ini = null;
+        Ini ini;
         try {
             ini = new Ini(new File(tmpFile.toString()));
         } catch (IOException e) {
@@ -70,13 +90,11 @@ public class AboutController extends ShowHideDialog implements Initializable {
         Main.BUILDNUMBER < Integer.parseInt(ini.get("Application Properties", "BuildNumber"))){
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Mise a jour");
-            //alert.setHeaderText("Erreur d'inscription dans la base de donnée");
             alert.setContentText("Une mise à jour est disponible");
             alert.showAndWait();
         }else {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Mise a jour");
-            //alert.setHeaderText("Erreur d'inscription dans la base de donnée");
             alert.setContentText("Votre programme est à jour");
             alert.showAndWait();
         }

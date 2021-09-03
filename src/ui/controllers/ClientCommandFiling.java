@@ -25,9 +25,8 @@ public class ClientCommandFiling extends ShowHideDialog implements Initializable
     public void initialize(URL location, ResourceBundle resources) {
         initAppDispatch(ApplicationEvent.appWindows.CREATE_CLIENT_COMMANDE_FILLER);
         Main.getAppEventDisp().addListener((ApplicationEvent.events event, Object... params) -> {
-            switch (event) {
-                case SELECTED_CLIENT:
-                    hide();
+            if (event == ApplicationEvent.events.SELECTED_CLIENT) {
+                hide();
             }
         });
         PQueryClientController.setStandalone(false);

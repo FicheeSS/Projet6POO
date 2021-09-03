@@ -15,6 +15,7 @@ import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.Date;
 
+@SuppressWarnings("ALL")
 public class AppController {
 
     protected void showError(String errorMessage) {
@@ -99,7 +100,7 @@ public class AppController {
     public long searchFournisseur(String fourName) {
         Transaction tx = Main.getAppM().searchFournisseur(fourName);
         if (tx.getCreatedObj() != null) {
-            ArrayList<Long> results = (ArrayList<Long>) tx.getCreatedObj();
+            @SuppressWarnings("unchecked") ArrayList<Long> results = (ArrayList<Long>) tx.getCreatedObj();
             if (results.size() != 1) {
                 return -1;
             } else {
@@ -113,7 +114,7 @@ public class AppController {
     public long searchEmployeExist(int numEmployee) {
         Transaction tx = Main.getAppM().searchEmployeExist(numEmployee);
         if (tx.getCreatedObj() != null) {
-            ArrayList<Long> results = (ArrayList<Long>) tx.getCreatedObj();
+            @SuppressWarnings("unchecked") ArrayList<Long> results = (ArrayList<Long>) tx.getCreatedObj();
             if (results.size() > 0) {
                 return results.get(0);
             } else {
@@ -147,9 +148,9 @@ public class AppController {
 
     public ArrayList<Client> searchAllClient() {
         Transaction tx = Main.getAppM().searchAll("Client");
+        ArrayList<Client> out = new ArrayList<Client>();
         if (tx.getLevel() != Alert.AlertType.NONE && tx.getLevel() != Alert.AlertType.ERROR) {
-            ArrayList<Client> out = new ArrayList<Client>();
-            ArrayList<Long> objsid = (ArrayList<Long>) tx.getCreatedObj();
+            @SuppressWarnings("unchecked") ArrayList<Long> objsid = (ArrayList<Long>) tx.getCreatedObj();
             for (long l : objsid) {
                 Client loadedClient = new Client();
                 loadedClient.load(tx, l);
@@ -160,11 +161,8 @@ public class AppController {
                 }
 
             }
-            return out;
-        } else {
-            ArrayList<Client> cl = new ArrayList<>();
-            return cl;
         }
+        return out;
     }
 
 
@@ -194,9 +192,9 @@ public class AppController {
 
     public ArrayList<Produit> searchProduits() {
         Transaction tx = Main.getAppM().searchAll("Produit");
+        ArrayList<Produit> out = new ArrayList<Produit>();
         if (tx.getLevel() != Alert.AlertType.NONE && tx.getLevel() != Alert.AlertType.ERROR) {
-            ArrayList<Produit> out = new ArrayList<Produit>();
-            ArrayList<Long> objsid = (ArrayList<Long>) tx.getCreatedObj();
+            @SuppressWarnings("unchecked") ArrayList<Long> objsid = (ArrayList<Long>) tx.getCreatedObj();
             for (long l : objsid) {
                 Produit loadedClient = new Produit();
                 loadedClient.load(tx, l);
@@ -207,17 +205,14 @@ public class AppController {
                 }
 
             }
-            return out;
-        } else {
-            ArrayList<Produit> cl = new ArrayList<Produit>();
-            return cl;
         }
+        return out;
     }
 
     public String searchFournisseurNumber(float idfournisseur) {
         Transaction tx = Main.getAppM().searchFournisseurNumber(idfournisseur);
         if (tx.getLevel() != Alert.AlertType.NONE && tx.getLevel() != Alert.AlertType.ERROR) {
-            ArrayList<String> name = (ArrayList<String>) tx.getCreatedObj();
+            @SuppressWarnings("unchecked") ArrayList<String> name = (ArrayList<String>) tx.getCreatedObj();
             if (name.size() != 0) {
                 return name.get(0);
             }
@@ -229,6 +224,7 @@ public class AppController {
         Transaction tx = Main.getAppM().searchQtyOfProduit(id);
         if (tx.getLevel() != Alert.AlertType.NONE && tx.getLevel() != Alert.AlertType.ERROR) {
             ArrayList<Long> results = new ArrayList<Long>();
+            //noinspection unchecked
             results = (ArrayList<Long>) tx.getCreatedObj();
             if (results.size() > 0) {
                 return results.get(0);
@@ -293,9 +289,9 @@ public class AppController {
 
     public ArrayList<Commande> searchAllCommande() {
         Transaction tx = Main.getAppM().searchAll("Commande");
+        ArrayList<Commande> out = new ArrayList<Commande>();
         if (tx.getLevel() != Alert.AlertType.NONE && tx.getLevel() != Alert.AlertType.ERROR) {
-            ArrayList<Commande> out = new ArrayList<Commande>();
-            ArrayList<Long> objsid = (ArrayList<Long>) tx.getCreatedObj();
+            @SuppressWarnings("unchecked") ArrayList<Long> objsid = (ArrayList<Long>) tx.getCreatedObj();
             for (long l : objsid) {
                 Commande loadedCommande = new Commande();
                 loadedCommande.load(tx, l);
@@ -306,11 +302,8 @@ public class AppController {
                 }
 
             }
-            return out;
-        } else {
-            ArrayList<Commande> cl = new ArrayList<Commande>();
-            return cl;
         }
+        return out;
     }
 
     public ArrayList<Produit> getProduitListFromCommande(Commande c) {
@@ -328,9 +321,9 @@ public class AppController {
 
     public ArrayList<Employe> searchAllEmploye() {
         Transaction tx = Main.getAppM().searchAll("Employe");
+        ArrayList<Employe> out = new ArrayList<Employe>();
         if (tx.getLevel() != Alert.AlertType.NONE && tx.getLevel() != Alert.AlertType.ERROR) {
-            ArrayList<Employe> out = new ArrayList<Employe>();
-            ArrayList<Long> objsid = (ArrayList<Long>) tx.getCreatedObj();
+            @SuppressWarnings("unchecked") ArrayList<Long> objsid = (ArrayList<Long>) tx.getCreatedObj();
             for (long l : objsid) {
                 Employe employe = new Employe();
                 employe.load(tx, l);
@@ -341,11 +334,8 @@ public class AppController {
                 }
 
             }
-            return out;
-        } else {
-            ArrayList<Employe> cl = new ArrayList<Employe>();
-            return cl;
         }
+        return out;
     }
 
     public void updateClient(String prenom, String nom, Adresse a, Date datanaissance, String mail, String tel, boolean fidel) {
@@ -377,7 +367,7 @@ public class AppController {
     public int searchPhoneNumberClient(String tel) {
         Transaction tx = Main.getAppM().searchPhoneNumberClient(tel);
         if (tx.getLevel() != Alert.AlertType.NONE && tx.getLevel() != Alert.AlertType.ERROR) {
-            ArrayList<Long> results = (ArrayList<Long>) tx.getCreatedObj();
+            @SuppressWarnings("unchecked") ArrayList<Long> results = (ArrayList<Long>) tx.getCreatedObj();
             return results.size();
         }
         showDialog(tx, "Recherche numéro de téléphone");
@@ -417,9 +407,9 @@ public class AppController {
 
     public ArrayList<Fournisseur> searchAllFournisseurs() {
         Transaction tx = Main.getAppM().searchAll("Fournisseur");
+        ArrayList<Fournisseur> out = new ArrayList<Fournisseur>();
         if (tx.getLevel() != Alert.AlertType.NONE && tx.getLevel() != Alert.AlertType.ERROR) {
-            ArrayList<Fournisseur> out = new ArrayList<Fournisseur>();
-            ArrayList<Long> objsid = (ArrayList<Long>) tx.getCreatedObj();
+            @SuppressWarnings("unchecked") ArrayList<Long> objsid = (ArrayList<Long>) tx.getCreatedObj();
             for (long l : objsid) {
                 Fournisseur Fournisseur = new Fournisseur();
                 Fournisseur.load(tx, l);
@@ -430,11 +420,8 @@ public class AppController {
                 }
 
             }
-            return out;
-        } else {
-            ArrayList<Fournisseur> cl = new ArrayList<Fournisseur>();
-            return cl;
         }
+        return out;
     }
 
     public void updateFournisseur(String fourname) {

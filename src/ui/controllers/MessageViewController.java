@@ -18,7 +18,7 @@ import java.util.ResourceBundle;
 public class MessageViewController implements Initializable {
     private final ObservableList<MessageObject> items = FXCollections.observableArrayList();
     @FXML
-    public ListView<MessageObject> MessageView = new ListView<MessageObject>();;
+    public ListView<MessageObject> MessageView = new ListView<MessageObject>();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

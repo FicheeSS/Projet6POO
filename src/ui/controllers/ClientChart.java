@@ -89,29 +89,6 @@ public class ClientChart implements Initializable {
         return max;
     }
 
-/*
-    private int minIndex1(int[] list){
-        int min = 0;
-        for (int i = list.length - 1; i > 0;i--){
-            if(list[i] > 0){
-                min  = i;
-            }
-        }
-        return min;
-    }
-
-    private int maxIndex1(int[] list){
-        int max = 0;
-        for (int i = 0; i < list.length ;i++){
-            if(list[i] > 0){
-                max  = i;
-            }
-        }
-        return max;
-    }
-
-*/
-
     private void showLineClient() {
         XYChart.Series data = new XYChart.Series();
         data.setName("Age");
